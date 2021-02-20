@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { Switch, Route, Router, HashRouter, Link } from 'react-router-dom'
+import Login from './views/Login/index'
+import '../src/style/normalize.css'
+import './app.less'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { hot } from 'react-hot-loader/root'
+class App extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {}
+	}
+	render() {
+		return (
+			<div>
+				<HashRouter>
+					<Switch>
+						<Route component={Login} exact path='/' />
+					</Switch>
+				</HashRouter>
+			</div>
+		)
+	}
 }
+const AppHot = process.env.NODE_ENV === 'development' ? hot(App) : App
 
-export default App;
+export default AppHot
