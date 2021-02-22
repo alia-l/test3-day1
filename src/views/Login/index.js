@@ -1,19 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import './index.less'
 import LoginForm from '../../component/LoginForm'
 import RegisterForm from '../../component/RegisterForm'
-class Login extends Component {
-	constructor() {
-		super()
-		this.state = {}
+function Login() {
+	const [formType, setFormType] = useState('login')
+	const switchForm = (value) => {
+		setFormType(value)
+		console.log(value)
 	}
-	render() {
-		return (
-			<div className='login-wrap'>
-				<LoginForm></LoginForm>
-				<RegisterForm></RegisterForm>
-			</div>
-		)
-	}
+	return (
+		<div className='login-wrap'>
+			{formType === 'login' ? (
+				<LoginForm switchForm={switchForm}></LoginForm>
+			) : (
+				<RegisterForm switchForm={switchForm}></RegisterForm>
+			)}
+		</div>
+	)
 }
+
 export default Login

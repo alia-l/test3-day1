@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Switch, Route, Router, HashRouter, Link } from 'react-router-dom'
-import Login from './views/Login/index'
+import Main from './router'
 import '../src/style/normalize.css'
 import './app.less'
 
@@ -14,11 +13,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<HashRouter>
-					<Switch>
-						<Route component={Login} exact path='/' />
-					</Switch>
-				</HashRouter>
+				<Main></Main>
 			</div>
 		)
 	}

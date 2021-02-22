@@ -30,13 +30,14 @@ const devServerConfig = () => (config) => {
 		...config,
 		// 服务开启gzip
 		compress: true,
+		hot: true,
 		proxy: {
-			'/api': {
-				target: 'xxx',
-				changeOrigin: true,
-				pathRewrite: {
-					'^/api': '/api'
-				}
+			'/shop-service/v1': {
+				target: 'http://localhost:3000',
+				changeOrigin: true
+				// pathRewrite: {
+				// 	'^/shop-service/v1': ''
+				// }
 			}
 		}
 	}
